@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\CountryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,3 +20,5 @@ Route::get('/404',function () {
 });
 Route::match(['get', 'post'], '/post/edit/{id}', [PostController::class, 'editPost'])->name('edit');
 Route::get('/post/del/{id}',[PostController::class, 'delPost']);
+
+Route::get('/counties',[CountryController::class,'getCountries']);
